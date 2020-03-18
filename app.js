@@ -64,7 +64,8 @@ function giveCatnip() {
   if (cat.dosed) {
     return
   }
-  setInterval(drawCatMood, 1000)
+  let interval = setInterval(drawCatMood, 1000)
+  setTimeout(function () { cat.dosed = false; clearInterval(interval) }, 10000)
   cat.dosed = true
 }
 
